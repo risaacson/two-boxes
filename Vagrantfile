@@ -7,8 +7,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |cluster|
 
   cluster.vm.define "node1" do |node1|
     node1.vm.box = "bento/centos-7.1"
-    confnode1ig.ssh.insert_key = false
-    confnode1ig.vm.provider :virtualbox do |vb, override|
+    node1.ssh.insert_key = false
+    node1.vm.provider :virtualbox do |vb, override|
       vb.customize ["modifyvm", :id, "--memory", "128"]
       vb.customize ["modifyvm", :id, "--cpus", "1"]
     end
