@@ -5,11 +5,11 @@
 
   tasks:
   - name: Stop and disable firewall
-    service name=iptable enabled=no state=stopped
+    service: name=iptable enabled=no state=stopped
 
   - name: Install packages
     yum: name={{ item }} state=present
     with_items: httpd
 
   - name: Start and enable httpd
-    service name=httpd enabled=yes state=started
+    service: name=httpd enabled=yes state=started
