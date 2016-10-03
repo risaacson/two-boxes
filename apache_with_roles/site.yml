@@ -11,6 +11,8 @@
   become: yes
 
   roles:
+  - role: jdauphant.ssl-certs
+    ssl_cert_common_name: "htc.local"
   - apache-node1
 
 - hosts: node2
