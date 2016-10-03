@@ -12,7 +12,14 @@
 
   roles:
   - role: jdauphant.ssl-certs
+    ssl_certs_path: "/etc/ssl"
+    ssl_certs_country: "US"
+    ssl_certs_locality: "Eden Prairie"
+    ssl_certs_organization: "HTC"
+    ssl_certs_state: "Minnesota"
     ssl_cert_common_name: "htc.local"
+    ssl_certs_path_owner: "apache"
+    ssl_certs_path_group: "apache"
   - apache-node1
 
 - hosts: node2
