@@ -1,7 +1,14 @@
 ---
-- hosts: web
-  name: This is a Playbook
+- hosts: node1
+  name: Install Apache on node1
   become: yes
 
   roles:
-  - apache 
+  - apache-node1
+
+- hosts: node1
+  name: Install Apache on node2
+  become: yes
+
+  roles:
+  - apache-node2
