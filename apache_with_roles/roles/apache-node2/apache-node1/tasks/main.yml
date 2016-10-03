@@ -2,14 +2,14 @@
 # tasks file for apache
 - name: stop iptables
   service: name=iptables state=stopped
-  
+
 - name: install packages
   yum: name={{ item }} state=present
   with_items: packages
   tags: package
 
-- name: copy httpd.conf
-  template: src=httpd.conf.j2 dest=/etc/httpd/httpd.conf
+- name: copy mod_proxy configuration
+  copy: src=reverse_proxy.conf dest=/etc/httpd/conf.d/
   notify: restart apache
   register: result
 
