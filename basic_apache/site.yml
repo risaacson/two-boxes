@@ -4,9 +4,6 @@
   become: yes
 
   tasks:
-  - name: Stop and disable firewall
-    service: name=iptable enabled=no state=stopped
-
   - name: Install packages
     yum: name={{ item }} state=present
     with_items: httpd

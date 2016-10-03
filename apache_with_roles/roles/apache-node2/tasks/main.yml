@@ -1,7 +1,5 @@
 ---
-# tasks file for apache
-- name: stop iptables
-  service: name=iptables state=stopped
+# tasks file for apache node2
 
 - name: install packages
   yum: name={{ item }} state=present
