@@ -5,10 +5,10 @@
   with_items: packages
   tags: package
 
-# - name: copy mod_rewrite configuration
-#   copy: src=rewrite.conf dest=/etc/httpd/conf.d/
-#   notify: restart apache
-#   register: result
+- name: copy mod_ssl configuration
+  copy: src=virtualhost.conf dest=/etc/httpd/conf.d/
+  notify: restart apache
+  register: result
 
 - name: start and enable apache service
   service: name=httpd state=started enabled=yes
