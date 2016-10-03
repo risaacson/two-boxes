@@ -13,7 +13,7 @@
   roles:
   - apache-node1
 
-- hosts: node1
+- hosts: node2
   name: Install Apache on node2
   become: yes
 
