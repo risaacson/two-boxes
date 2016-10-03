@@ -1,0 +1,32 @@
+---
+# tasks file for apache node 1
+- name: install packages
+  yum: name={{ item }} state=present
+  with_items: packages
+  tags: package
+
+- name: copy auth_basic configuration
+  copy: src=auth_basic.conf dest=/etc/httpd/conf.d/
+  notify: restart apache
+  register: result
+
+- name: copy mod_rewrite configuration
+  copy: src=rewrite.conf dest=/etc/httpd/conf.d/
+  notify: restart apache
+  register: result
+
+- name: create entry in htpasswd database
+  htpasswd: path=/etc/httpd/conf/.htpasswd name=user1 password=user1 owner=root group=apache mode=0640
+
+- name: copy index.html
+  template: src=index.html.j2 dest=/var/www/html/index.html
+
+- name: make basic auth directory
+  file: path=/var/www/html/basic-auth state=directory
+
+- name: copy index.html for basic auth
+  template: src=basic-auth-index.html.j2 dest=/var/www/html/basic-auth/index.html
+
+- name: start and enable apache service
+  service: name=httpd state=started enabled=yes
+  tags: service

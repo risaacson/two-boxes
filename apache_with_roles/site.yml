@@ -11,6 +11,7 @@
   become: yes
 
   roles:
+  - apache-node1
   - role: jdauphant.ssl-certs
     ssl_certs_path: "/etc/ssl"
     ssl_certs_country: "US"
@@ -20,7 +21,7 @@
     ssl_certs_common_name: "htc.local"
     ssl_certs_path_owner: "apache"
     ssl_certs_path_group: "apache"
-  - apache-node1
+  - apache-node1-ssl
 
 - hosts: node2
   name: Install Apache on node2
