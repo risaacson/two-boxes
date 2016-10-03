@@ -17,7 +17,7 @@
     ssl_certs_locality: "Eden Prairie"
     ssl_certs_organization: "HTC"
     ssl_certs_state: "Minnesota"
-    ssl_cert_common_name: "htc.local"
+    ssl_certs_common_name: "htc.local"
     ssl_certs_path_owner: "apache"
     ssl_certs_path_group: "apache"
   - apache-node1
