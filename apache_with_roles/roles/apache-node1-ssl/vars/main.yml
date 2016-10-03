@@ -1,8 +1,4 @@
 ---
 # vars file for apache
 packages:
-- httpd
-- libselinux-python
 - mod_ssl
-- python-pip
-- python-passlib
