@@ -20,7 +20,7 @@
   file: path=/var/www/html/basic-auth state=directory
 
 - name: copy index.html for basic auth
-  copy: src=basic-auth-index.html dest=/var/www/html/basic-auth/index.html
+  template: src=basic-auth-index.html.j2 dest=/var/www/html/basic-auth/index.html
 
 - name: start and enable apache service
   service: name=httpd state=started enabled=yes
