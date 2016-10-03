@@ -1,6 +1,8 @@
 ---
 - hosts: web
   name: Install EPEL on the servers
+  become: yes
+
   roles:
     - geerlingguy.repo-epel
 
