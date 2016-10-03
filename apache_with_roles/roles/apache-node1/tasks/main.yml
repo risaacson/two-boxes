@@ -10,6 +10,11 @@
   notify: restart apache
   register: result
 
+- name: copy mod_rewrite configuration
+  copy: src=rewrite.conf dest=/etc/httpd/conf.d/
+  notify: restart apache
+  register: result
+
 - name: create entry in htpasswd database
   htpasswd: path=/etc/httpd/conf/.htpasswd name=user1 password=user1 owner=root group=apache mode=0640
 
