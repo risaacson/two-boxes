@@ -3,3 +3,5 @@
 packages:
 - httpd
 - libselinux-python
+- python-pip
+- python-passlib
