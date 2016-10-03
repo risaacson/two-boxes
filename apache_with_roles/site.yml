@@ -1,4 +1,9 @@
 ---
+- hosts: web
+  name: Install EPEL on the servers
+  roles:
+    - geerlingguy.repo-epel
+
 - hosts: node1
   name: Install Apache on node1
   become: yes
