@@ -15,7 +15,7 @@
      - unzip
 
   - name: Install pexpect with python-pip
-    pip: name=pexpect
+    pip: name=pexpect state=latest
 
   - name: Create a src directory
     file: path={{ item }} state=directory
