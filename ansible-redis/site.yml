@@ -41,8 +41,8 @@
   - name: Use the install script to create the basic files.
     expect: /bin/bash -c "cd /usr/src/redis-3.2.5/utils; ./install_server.sh"
     responses:
-      (?i)port: 6379
-      (?i)config: "/etc/redis/6379.conf"
-      (?i)log: "/var/log/redis_6379.log"
-      (?i)data: "/var/lib/redis/6379"
-      (?i)executable: "/usr/local/bin/redis-server"
+      port: 6379
+      config: "/etc/redis/6379.conf"
+      log: "/var/log/redis_6379.log"
+      data: "/var/lib/redis/6379"
+      executable: "/usr/local/bin/redis-server"
