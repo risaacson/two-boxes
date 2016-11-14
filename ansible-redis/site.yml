@@ -1,6 +1,6 @@
 ---
 - hosts: redis
-  name: Basic install of Redis using Yum
+  name: Basic install of Redis building from source.
   become: yes
 
   tasks:
