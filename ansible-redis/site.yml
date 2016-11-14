@@ -37,14 +37,7 @@
     args:
       chdir: /usr/src/redis-3.2.5
 
-  - name: Copy the init script into the init.d directory
-    copy:
-      src: /usr/src/redis-3.2.5/utils/redis_init_script
-      dest: /etc/init.d/redis
-      mode: 0755
-      remote_src: yes
-
-  - name: Enable and start the service.
+  - name: Use the install script to create the basic files.
     shell: ./install_server.sh
     args:
       chdir: /usr/src/redis-3.2.5
