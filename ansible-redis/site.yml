@@ -14,7 +14,6 @@
     file: path={{ item }} state=directory
     with_items:
       - /usr/src
-      - /usr/src/redis-3.2.5
 
   - name: Download the Redis Source tarball to the src directory.
     get_url:
@@ -27,3 +26,11 @@
       src=/usr/src/redis-3.2.5.tar.gz
       dest=/usr/src/
       remote_src=yes
+
+  - name: Run the make command for the Redis Source.
+    command: make MALLOC=libc
+    chdir: /usr/src/redis-3.2.5
+
+  - name: Run the make install command for the Redis Source
+    command: make install
+    chdir: /usr/src/redis-3.2.5
