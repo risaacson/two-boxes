@@ -8,6 +8,7 @@
     yum: name={{ item }} state=present
     with_items:
      - "@Development tools"
+     - pexpect
      - unzip
 
   - name: Create a src directory
@@ -38,7 +39,12 @@
       chdir: /usr/src/redis-3.2.5
 
   - name: Use the install script to create the basic files.
-    shell: ./install_server.sh
+    expect: ./install_server.sh
     args:
       chdir: /usr/src/redis-3.2.5/utils
-      executable: /bin/bash
+      responses:
+        (?i)port: 6379
+        (?i)config: "/etc/redis/6379.conf"
+        (?i)log: "/var/log/redis_6379.log"
+        (?i)data: "/var/lib/redis/6379"
+        (?i)executable: "/usr/local/bin/redis-server"
