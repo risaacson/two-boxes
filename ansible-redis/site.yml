@@ -46,4 +46,4 @@
       REDIS_DATA_DIR: /var/lib/redis/6379
       REDIS_EXECUTABLE: /usr/local/bin/redis-server
     args:
-      chdir: /usr/src/redis-3.2.5
+      chdir: /usr/src/redis-3.2.5/utils
