@@ -6,7 +6,7 @@
   tasks:
   - name: Install packages
     yum: name={{ item }} state=present
-    with_items: 
+    with_items:
      - "@Development tools"
      - unzip
 
@@ -28,9 +28,9 @@
       remote_src: yes
 
   - name: Run the make command for the Redis Source.
-    command: "make MALLOC=libc"
+    shell: "make MALLOC=libc"
     chdir: /usr/src/redis-3.2.5
 
   - name: Run the make install command for the Redis Source
-    command: make install
+    shell: make install
     chdir: /usr/src/redis-3.2.5
