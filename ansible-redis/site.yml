@@ -45,4 +45,6 @@
       remote_src: yes
 
   - name: Enable and start the service.
-    service: name=redis state=started enabled=yes
+    shell: ./install_server.sh
+    args:
+      chdir: /usr/src/redis-3.2.5
