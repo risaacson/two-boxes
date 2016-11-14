@@ -43,7 +43,7 @@
       command: ./install_server.sh
       chdir: /usr/src/redis-3.2.5/utils
       responses:
-        (?i)port: 6379
+        (?i)port: "6379"
         (?i)config: "/etc/redis/6379.conf"
         (?i)log: "/var/log/redis_6379.log"
         (?i)data: "/var/lib/redis/6379"
