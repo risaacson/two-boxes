@@ -4,12 +4,19 @@
   become: yes
 
   tasks:
-  - name: Install EPEL
-    yum: name=https://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm state=present
-
   - name: Install packages
     yum: name={{ item }} state=present
-    with_items: redis
+    with_items: 
+     - "@Development tools"
 
-  - name: Start and enable httpd
-    service: name=redis enabled=yes state=started
+  - name: Create a src directory
+    file: src=/usr/src state=directory
+
+  - name: Download the Redis Source tarball to the src directory.
+    get_url:
+      url: http://download.redis.io/releases/redis-3.2.5.tar.gz
+      dest: /usr/src/redis-3.2.5.tar.gz
+      mode: 0644
+
+  - name: Unarchive the Redis Source tarball in the src directory.
+    unarchive: src=/usr/src/redis-3.2.5.tar.gz dest=/usr/src/ remote_src=yes
