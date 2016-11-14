@@ -1,5 +1,5 @@
 ---
-- hosts: node1
+- hosts: redis
   name: Basic install of Redis using Yum
   become: yes
 
