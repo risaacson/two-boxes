@@ -12,4 +12,4 @@
     with_items: redis
 
   - name: Start and enable httpd
-    service: name=yes enabled=yes state=started
+    service: name=redis enabled=yes state=started
