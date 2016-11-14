@@ -38,7 +38,7 @@
       chdir: /usr/src/redis-3.2.5
 
   - name: Use the install script to create the basic files.
-    shell: ./install_server.sh
+    shell: install_server.sh
     environment:
       REDIS_PORT: 6379
       REDIS_CONFIG_FILE: /etc/redis/6379.conf
