@@ -28,7 +28,7 @@
       remote_src=yes
 
   - name: Run the make command for the Redis Source.
-    command: make MALLOC=libc
+    command: "make MALLOC=libc"
     chdir: /usr/src/redis-3.2.5
 
   - name: Run the make install command for the Redis Source
