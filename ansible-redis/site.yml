@@ -23,4 +23,7 @@
       mode: 0644
 
   - name: Unarchive the Redis Source tarball in the src directory.
-    unarchive: src=/usr/src/redis-3.2.5.tar.gz dest=/usr/src/redis-3.2.5 remote_src=yes
+    unarchive:
+      src=/usr/src/redis-3.2.5.tar.gz
+      dest=/usr/src/
+      remote_src=yes
