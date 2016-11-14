@@ -8,7 +8,6 @@
     yum: name={{ item }} state=present
     with_items: 
      - "@Development tools"
-     - gtar
      - unzip
 
   - name: Create a src directory
