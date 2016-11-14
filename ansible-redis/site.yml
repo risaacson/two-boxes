@@ -40,10 +40,10 @@
   - name: Use the install script to create the basic files.
     shell: ./install_server.sh
     environment:
-      REDIS_PORT: 6379
-      REDIS_CONFIG_FILE: /etc/redis/6379.conf
-      REDIS_LOG_FILE: /var/log/redis_6379.log
-      REDIS_DATA_DIR: /var/lib/redis/6379
-      REDIS_EXECUTABLE: /usr/local/bin/redis-server
+      _REDIS_PORT: 6379
+      _REDIS_CONFIG_FILE: /etc/redis/6379.conf
+      _REDIS_DATA_DIR: /var/lib/redis/6379
+      _REDIS_EXECUTABLE: /usr/local/bin/redis-server
+      _REDIS_LOG_FILE: /var/log/redis_6379.log
     args:
       chdir: /usr/src/redis-3.2.5/utils
