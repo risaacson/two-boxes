@@ -4,18 +4,11 @@
   become: yes
 
   tasks:
-  - name: Install EPEL
-    yum: name=https://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm state=present
-
   - name: Install packages
     yum: name={{ item }} state=present
     with_items:
      - "@Development tools"
-     - python-pip
      - unzip
-
-  - name: Install pexpect with python-pip
-    pip: name=pexpect state=latest
 
   - name: Create a src directory
     file: path={{ item }} state=directory
@@ -47,7 +40,7 @@
   - name: Replace the command line in the install_server script.
     replace: dest=/usr/src/redis-3.2.5/utils/install_server.sh regexp='\`command -v redis-server\`' replace='\"/usr/local/bin/redis-server\"'
 
-  - name: Use the install script to create the basic files.
+  - name: Use the install script to create the basic configs and start server.
     shell: ./install_server.sh
     args:
       chdir: /usr/src/redis-3.2.5/utils
