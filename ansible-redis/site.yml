@@ -8,8 +8,11 @@
     yum: name={{ item }} state=present
     with_items:
      - "@Development tools"
-     - pexpect
+     - python-pip
      - unzip
+
+  - name: Install pexpect with python-pip
+    pip: name=pexpect
 
   - name: Create a src directory
     file: path={{ item }} state=directory
