@@ -8,9 +8,11 @@
     yum: name={{ item }} state=present
     with_items: 
      - "@Development tools"
+     - gtar
+     - unzip
 
   - name: Create a src directory
-    file: src=/usr/src state=directory
+    file: path=/usr/src state=directory
 
   - name: Download the Redis Source tarball to the src directory.
     get_url:
